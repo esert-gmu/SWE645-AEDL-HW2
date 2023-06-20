@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+
+/* 
+****************************************************************
+
+
+ This is the external style sheet that allows for the separation of design and structure
+ 
+****************************************************************
+*/
+h2 {
+	font-size: 35px
+}
+
+h1 {
+	color: #006633 !important;
+	font-size: 35px;
+}
+
+body, html {
+	background-color: #efefef4a !important;
+	font-family: 'Open Sans', Verdana, Geneva, sans-serif;
+}
+
+p {
+	line-height: 2
+}
+
+
+.header {
+	box-shadow: 0 0rem 1rem #006633 !important;
+	background-image: url("../img/header-banner.jpg");
+	text-shadow: 0 0rem 1rem white !important;
+	height: 115px !important;
+}
+
+.headerimg {
+	filter: blur(8px);
+}
+
+.headerMarquee {
+	height: 30px;
+	background-color: #FFCC33;
+	color: #006633;
+	margin-top: 8px;
+	font-style: italic;
+	font-weight: bolder;
+}
+
+
+
+.logo {
+	height: 120px;
+	float: left;
+}
+
+.card {
+	width: 60%;
+	margin-left: 20%;
+	margin-top: 20px;
+}
+
+
+.btn-primary {
+	background-color: #006633 !important;
+	border-color: #006633 !important;
+}
+
+.surveyTitle {
+	margin-left: 20%;
+	margin-top: 50px;
+	color: #006633;
+}
+
+.required-field::after {
+	content: " *" !important;
+	color: red !important;
+}
+
+
+.footer{
+	background-color: #006633; 
+	color: white;
+	
+}
+/* Styling the Body element i.e. Color,
+		Font, Alignment */
+body {
+	background-color: #6683a83d;
+	font-family: Verdana;
+	text-align: center;
+}
+
+/* Styling the Form (Color, Padding, Shadow) */
+form {
+	background-color: #fff;
+	max-width: 500px;
+	margin: 50px auto;
+	padding: 30px 20px;
+	box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Styling form-control Class */
+.form-control {
+	text-align: left;
+	margin-bottom: 25px;
+}
+
+/* Styling form-control Label */
+.form-control label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.requiredLable:after {
+	content: " *";
+	color: red;
+}
+
+/* Styling form-control input,
+		select, textarea */
+.form-control input, .form-control select, .form-control textarea {
+	border-radius: 2px;
+	font-family: inherit;
+	padding: 10px;
+	display: block;
+	border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+	width: 95%;
+}
+
+/* Styling form-control Radio
+		button and Checkbox  */
+.form-control input[type="radio"], .form-control input[type="checkbox"]
+	{
+	display: inline-block;
+	width: auto;
+}
+
+/* Styling Button */
+ button {
+  background: #149ddd;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #37b3ed;
+}
+
+.footer{
+	background-color: #006633; 
+	color: white;
+	height:40px;
+    padding-top: 15px;
+	
+}
+
+.form-group {
+	text-align:left;
+}
+
+
+
+
