@@ -1,0 +1,4 @@
+swe645-hw1-part1 folder contains:
+- Source code for hw1-part2 application 
+- Docker file (for building a Docker tomcat image from the survey application "swe645-hw1-part1")
+- WAR file  (Packaged file for "swe645-hw1-part1" survey application)
