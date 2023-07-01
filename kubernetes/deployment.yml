@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hw2-deployment
+  labels:
+    app: hw2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hw2
+  template:
+    metadata:
+      labels:
+        app: hw2
+    spec:
+      containers:
+      - name: jenkins
+        image: esertgmu/hw2-jenkins
+        ports:
+        - containerPort: 80
