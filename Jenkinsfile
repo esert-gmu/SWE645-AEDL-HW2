@@ -30,20 +30,11 @@ pipeline {
             }
         }
 
-        stage('Create HW2 Namespace') {
-            steps {
-                withAWS(profile:'default') {
-                    script {
-                        sh 'kubectl create namespace hw2'
-                    }
-                }
-            }
-        }
-
         stage('Deploy using the deployment.yaml') {
             steps {
                 script {
-                    sh 'export AWS_PROFILE=default && kubectl apply -f ./kubernetes/deployment.yaml'
+                    sh 'kubectl apply -f ./kubernetes/deployment.yaml'
+                    sh 'kubectl apply -f ./kubernetes/service.yaml'
                 }
             }
         }

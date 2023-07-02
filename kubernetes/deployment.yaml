@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: esertgmu/hw2-jenkins
+        image: esertgmu/hw2
         ports:
         - containerPort: 80
