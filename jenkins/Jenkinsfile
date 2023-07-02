@@ -12,8 +12,10 @@ pipeline {
             withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
                 steps {
                     script {
+                                                                    echo "Docker Hub Username: ${env.DOCKER_USER}"
+                        echo "Docker Hub Password: ${env.DOCKER_PASSWORD}"
                         sh 'docker build -t esertgmu/hw2 ./SWE645-AEDL-HW2'
-                        sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}"
+                        sh "docker login -u ${env.DOCKER_USER} -p ${env.DOCKER_PASSWORD}"
                         sh 'docker push esertgmu/hw2'
                     }
                 }
