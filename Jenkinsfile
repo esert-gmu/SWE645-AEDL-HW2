@@ -18,24 +18,21 @@ pipeline {
             }
         }
 
-        stage('Build And Tag The Image') {
+        stage('Login to Docker') {
             steps {
-                sh 'docker build -t esertgmu/hw2 ./swe645-hw1-part2'
-                sh 'docker tag esertgmu/hw2 esertgmu/hw2'
+                script {
+                    sh "docker login -u ${DOCKERHUB_CREDS_USR} -p ${DOCKERHUB_CREDS_PSW} registry-1.docker.io"
+                }
             }
         }
 
-        stage('Extract Docker Credentials And Push') {
+        stage('Build and push the image') {
             steps {
                 script {
-                    echo "Docker Hub Username: ${DOCKERHUB_CREDS_USR}"
-                    echo "Docker Hub Password: ${DOCKERHUB_CREDS_PSW}"
-                                   
-                    sh "docker login -u ${DOCKERHUB_CREDS_USR} -p ${DOCKERHUB_CREDS_PSW} registry-1.docker.io"
-                    sh 'sudo docker push esertgmu/hw2'
+                    dockerImage = docker.build('esertgmu/hw2', './swe645-hw1-part2')
+                    dockerImage.push()
                 }
             }
-            
         }
 
         stage('Deploy using the deployment.yaml') {
