@@ -1,25 +1,28 @@
 pipeline {
     agent any
-
+    environment {
+        DOCKERHUB_CREDS = credentials('docker-credentials')
+    }
     stages {
         stage('Check the repository out') {
             steps {
                 checkout scm
             }
         }
+    
 
-        stage('Build and Push Docker Image') {
-                steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    script {
-                                                                    echo "Docker Hub Username: ${env.DOCKER_USER}"
-                        echo "Docker Hub Password: ${env.DOCKER_PASSWORD}"
-                        sh 'docker build -t xesertgmu/hw2 ./SWE645-AEDL-HW2'
-                        sh "docker login -u ${env.DOCKER_USER} -p ${env.DOCKER_PASSWORD}"
-                        sh 'docker push esertgmu/hw2'
-                    }
+        stage('Extract Docker Credentials') {
+            steps {
+                script {
+                    // Use the extracted Docker Hub credentials as needed
+                    echo "Docker Hub Username: ${DOCKERHUB_CREDS_USR}"
+                    echo "Docker Hub Password: ${DOCKERHUB_CREDS_PSW}"
+                                                                    sh 'docker build -t esertgmu/hw2 ./SWE645-AEDL-HW2'
+                    sh "docker login -u ${DOCKERHUB_CREDS_USR} -p ${DOCKERHUB_CREDS_PSW}"
+                    sh 'docker push esertgmu/hw2'
                 }
             }
+            
         }
 
         stage('Deploy using the deployment.yaml') {
