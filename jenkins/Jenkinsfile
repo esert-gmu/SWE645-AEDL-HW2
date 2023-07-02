@@ -6,18 +6,30 @@ pipeline {
     stages {
         stage('Check the repository out') {
             steps {
+                echo "Checking repo out"
                 checkout scm
             }
         }
-    
 
-        stage('Extract Docker Credentials') {
+        stage('Display Creds') {
+            steps {
+                echo "Docker Hub Username: ${DOCKERHUB_CREDS_USR}"
+                echo "Docker Hub Password: ${DOCKERHUB_CREDS_PSW}"
+            }
+        }
+
+        stage('Build Image') {
+            steps {
+                sh 'docker build -t esertgmu/hw2 ./swe645-hw1-part2'
+            }
+        }
+
+        stage('Extract Docker Credentials And Push') {
             steps {
                 script {
-                    // Use the extracted Docker Hub credentials as needed
                     echo "Docker Hub Username: ${DOCKERHUB_CREDS_USR}"
                     echo "Docker Hub Password: ${DOCKERHUB_CREDS_PSW}"
-                                                                 sh 'docker build -t esertgmu/hw2 ./SWE645-AEDL-HW2'
+                                   
                     sh "docker login -u ${DOCKERHUB_CREDS_USR} -p ${DOCKERHUB_CREDS_PSW}"
                     sh 'docker push esertgmu/hw2'
                 }
