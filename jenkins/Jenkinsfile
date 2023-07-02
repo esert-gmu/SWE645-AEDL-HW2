@@ -17,7 +17,7 @@ pipeline {
                     // Use the extracted Docker Hub credentials as needed
                     echo "Docker Hub Username: ${DOCKERHUB_CREDS_USR}"
                     echo "Docker Hub Password: ${DOCKERHUB_CREDS_PSW}"
-                                                                    sh 'docker build -t esertgmu/hw2 ./SWE645-AEDL-HW2'
+                                                                 sh 'docker build -t esertgmu/hw2 ./SWE645-AEDL-HW2'
                     sh "docker login -u ${DOCKERHUB_CREDS_USR} -p ${DOCKERHUB_CREDS_PSW}"
                     sh 'docker push esertgmu/hw2'
                 }
