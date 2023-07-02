@@ -9,12 +9,12 @@ pipeline {
         }
 
         stage('Build and Push Docker Image') {
-            withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
                 steps {
+                withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
                     script {
                                                                     echo "Docker Hub Username: ${env.DOCKER_USER}"
                         echo "Docker Hub Password: ${env.DOCKER_PASSWORD}"
-                        sh 'docker build -t esertgmu/hw2 ./SWE645-AEDL-HW2'
+                        sh 'docker build -t xesertgmu/hw2 ./SWE645-AEDL-HW2'
                         sh "docker login -u ${env.DOCKER_USER} -p ${env.DOCKER_PASSWORD}"
                         sh 'docker push esertgmu/hw2'
                     }
