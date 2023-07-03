@@ -15,7 +15,7 @@ spec:
         app: hw2
     spec:
       containers:
-      - name: jenkins
+      - name: homework2
         image: esertgmu/hw2
         ports:
         - containerPort: 80
