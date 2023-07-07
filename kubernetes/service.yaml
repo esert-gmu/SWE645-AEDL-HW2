@@ -1,3 +1,5 @@
+# Dana Jamous, Erman Sert, Lubna Fatima, Asra Naseem
+# This is our service which can be a load balancer which will forward port 80 to 8080 of the container
 apiVersion: v1
 kind: Service
 metadata:
