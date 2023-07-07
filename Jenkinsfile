@@ -1,3 +1,10 @@
+/*
+** Dana Jamous, Erman Sert, Lubna Fatima, Asra Naseem
+This our Jenkinsfile which is  a configuration file written in Groovy syntax that defines the entire Jenkins pipeline for our project.
+ It specifies the steps, stages, and actions to be executed in a CI/CD (Continuous Integration/Continuous Delivery) process.
+*/
+
+
 pipeline {
     agent any
     environment {
