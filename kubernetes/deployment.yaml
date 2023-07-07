@@ -1,3 +1,6 @@
+# Dana Jamous, Erman Sert, Lubna Fatima, Asra Naseem
+# This is our deployment yml The deployment that specify replication as 3 as we want resiliency for this project 
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
